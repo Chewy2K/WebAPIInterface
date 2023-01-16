@@ -1,0 +1,33 @@
+﻿@model WebAPIInterface.Models.UserEntity
+@{
+    ViewData["Title"] = "Update User";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-black">UPDATE USER</h2>
+        <form asp-action="UpdateUser">
+      
+        <div class="mb-3">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Emailaddress"></label>
+            <input asp-for="Emailaddress" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Mobilenumber"></label>
+            <input asp-for="Mobilenumber" class="form-control" />
+        </div>
+            <button type="submit" class="btn btn-white" style="width:150px">UPDATE</button>
+            <a asp-action="Index2" class="btn btn-white" style="width:150px">RETURN</a>
+        </form>
+    </div>
+</div>
+</form>

@@ -1,0 +1,45 @@
+﻿
+@model IEnumerable<UserEntity>
+
+@{
+    ViewData["Title"] = "Fetching Data";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-black">DATA LIST</h2>
+        </div>
+        <div class="col-6 text-end">
+          <a asp-controller="Home" asp-action="AddUser" class="btn btn-white">NEW USER</a>
+    </div>
+</div>
+
+<table class="table table-bordered tabke-striped" style="width=100%">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("USER NAME")</th>
+            <th>@Html.DisplayName("USER PASSWORD")</th>
+            <th>@Html.DisplayName("USER MOBILE NUMBER")</th>
+            <th>@Html.DisplayName("USER EMAIL")</th>
+            <th>@Html.DisplayName("EDIT & DELETE")</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var row in Model)
+        {
+                <tr>
+                    <td width="25%">@row.Username</td>
+                    <td width="25%">@row.Password</td>
+                    <td width="25%">@row.Mobilenumber</td>
+                    <td width="25%">@row.Emailaddress</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Home" asp-action="UpdateUser" asp-route-id="@row.Id" class="btn btn-white">EDIT</a>
+                                <a asp-controller="Home" asp-action="DeleteUser" asp-route-id="@row.Id" class="btn btn-white">DELETE</a>
+                        </div>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
